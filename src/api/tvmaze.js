@@ -1,13 +1,10 @@
-const Baseurl = "https://api.tvmaze.com";
+const Baseurl = 'https://api.tvmaze.com';
 
-const apiGet= async (search)=>{
+const apiGet = async search => {
+  //throw new Error("404");
+  const response = await fetch(`${Baseurl}${search}`);
+  const body = await response.json();
+  return body;
+};
 
-    //throw new Error("404");
-    const response = await fetch(
-         `${Baseurl}${search}`
-        );
-        const body = await response.json();
-        return body;
- }
-
-export const searchShow  =(query)=> apiGet(`/search/shows?q=${query}`);
+export const searchShow = query => apiGet(`/search/shows?q=${query}`);
