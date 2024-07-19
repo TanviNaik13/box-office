@@ -8,3 +8,4 @@ const apiGet = async search => {
 };
 
 export const searchShow = query => apiGet(`/search/shows?q=${query}`);
+export const searchPeople = query => apiGet(`/search/people?q=${query}`);
