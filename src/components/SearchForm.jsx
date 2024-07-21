@@ -9,7 +9,7 @@ const SearchForm = ({ onSearch }) => {
   //3) unmount
 
   //useEffect runs ot least once
-  console.log('rerender');
+
   useEffect(() => {
     console.log('search option changed');
   }, [searchOption]);
