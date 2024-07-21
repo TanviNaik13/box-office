@@ -8,13 +8,12 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route element={<MainLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/starred" element={<Starred />} />
+          <Route element={<MainLayout />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/starred" element={<Starred />} />
 
-            <Route path="/show/:showId" element={<Show />} />
-            <Route path="*" element={<div>404 ERROR NOT FOUND</div>} />
-          </Route>
+          <Route path="/show/:showId" element={<Show />} />
+          <Route path="*" element={<div>404 ERROR NOT FOUND</div>} />
 
           {/* <Route index element={<Home />} />
             <Route path="teams" element={<Teams />}>

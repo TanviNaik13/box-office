@@ -1,7 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 const SearchForm = ({ onSearch }) => {
   const [search, setSearch] = useState('');
   const [searchOption, setSearchOption] = useState('shows');
+
+  // 1) mounts
+  //2) rerender
+  //2.5) logic before next rerender
+  //3) unmount
+
+  //useEffect runs ot least once
+  console.log('rerender');
+  useEffect(() => {
+    console.log('search option changed');
+  }, [searchOption]);
+
   const onInput = ev => {
     setSearch(ev.target.value);
   };
