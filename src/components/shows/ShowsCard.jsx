@@ -12,7 +12,9 @@ const ShowsCard = ({ name, image, summary, id }) => {
       <h1>{name}</h1>
       <p>{summaryStripped}</p>
       <div>
-        <Link to={`/show/${id}`}>Read more</Link>
+        <Link to={`/show/${id}`} target="blank" rel="noreferrer">
+          Read more
+        </Link>
         <button type="button">Star Me</button>
       </div>
     </div>
