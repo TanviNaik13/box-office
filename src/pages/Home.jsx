@@ -16,6 +16,7 @@ const Home = () => {
         : searchPeople(filter.q),
     //disabled as Long as the filter is empty
     enabled: !!filter,
+    refetchOnWindowFocus: false,
   });
 
   const onSearch = async ({ q, searchOption }) => {
