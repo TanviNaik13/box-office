@@ -1,12 +1,36 @@
-import { useState } from 'react';
+import { useState, useReducer } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { searchShow, searchPeople } from '../api/tvmaze';
 import SearchForm from '../components/SearchForm';
 import ShowsGrid from '../components/shows/ShowsGrid';
 import ActorsGrid from '../components/actors/ActorsGrid';
 
+const reducerFn = (currCounter, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return currCounter + 1;
+    case 'DECREMENT':
+      return currCounter - 1;
+    case 'RESET':
+      return 0;
+  }
+  return 0;
+};
+
 const Home = () => {
   const [filter, setFiIter] = useState('');
+
+  const [counter, dispatch] = useReducer(reducerFn, 0);
+
+  const onIncrement = () => {
+    dispatch({ type: 'INCREMENT' });
+  };
+  const onDecrement = () => {
+    dispatch({ type: 'DECREMENT' });
+  };
+  const onReset = () => {
+    dispatch({ type: 'RESET' });
+  };
 
   const { data: apiData, error: apiErr } = useQuery({
     queryKey: ['search', filter],
@@ -44,7 +68,16 @@ const Home = () => {
   return (
     <div>
       <SearchForm onSearch={onSearch} />
-
+      <div>Counter: {counter}</div>
+      <button type="button" onClick={onIncrement}>
+        Increment
+      </button>
+      <button type="button" onClick={onDecrement}>
+        Decrement
+      </button>
+      <button type="button" onClick={onReset}>
+        Reset
+      </button>
       <div>{renderApiData()}</div>
     </div>
   );
