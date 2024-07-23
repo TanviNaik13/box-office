@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useSearchStr } from '../lib/useSearchStr';
+
 const SearchForm = ({ onSearch }) => {
-  const [search, setSearch] = useState('');
+  const [searchStr, setSearch] = useSearchStr();
   const [searchOption, setSearchOption] = useState('shows');
 
   // 1) mounts
@@ -25,7 +27,7 @@ const SearchForm = ({ onSearch }) => {
   const onSubmit = ev => {
     ev.preventDefault();
     const options = {
-      q: search,
+      q: searchStr,
       searchOption,
     };
     onSearch(options);
@@ -33,7 +35,7 @@ const SearchForm = ({ onSearch }) => {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <input type="text" value={search} onChange={onInput} />
+        <input type="text" value={searchStr} onChange={onInput} />
 
         <label>
           shows

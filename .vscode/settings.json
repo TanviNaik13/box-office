@@ -3,7 +3,7 @@
     "editor.formatOnSave" :true,
     "editor.defaultFormatter":"esbenp.pnettier-vscode",
     "[javascript]": {
-        "editor.defaultFormatter":"esbenp.pnettier-vscode"
+        "editor.defaultFormatter":"esbenp.prettier-vscode"
     },
 // configure git-bash (windows-only for git-bash users)
 "terminal.integrated.profiles.windows": {
